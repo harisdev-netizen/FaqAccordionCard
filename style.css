@@ -1,0 +1,270 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+/*========================================================
+    HIDING THE SCROLL BAR, BUT STILL BEING ABLE TO SCROLL
+==========================================================*/
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+/*=========
+    ROOT
+==========*/
+:root {
+  --very-dark-blue: hsla(238, 29%, 17%, 1);
+
+  --soft-orange: hsla(14, 88%, 65%, 1);
+
+  --very-dark-blue-text: hsla(237, 12%, 33%, 1);
+
+  --text-dark-blue: hsla(240, 6%, 50%, 1);
+  
+  --color: hsla(240, 5%, 91%, 1);
+}
+
+/*=========
+    BODY
+==========*/
+body {
+  background: linear-gradient( hsl(273, 75%, 66%), hsl(240, 73%, 65%)) no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+/*=========
+    MAIN
+==========*/
+main {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 70%;
+  max-width: 1000px;
+  margin: 15% auto;
+  padding: 0;
+  box-shadow: 0px 15px 50px -2px hsla(238, 29%, 16%, 0.397);
+}
+
+/*==========
+    IMAGES
+============*/
+.img {
+  width: 80%;
+  background: url(images/bg-pattern-desktop.svg) 100% 70% no-repeat;
+  background-size: auto;
+  margin-right: 30px;
+  position: relative;
+}
+.box {
+  width: 50%;
+  position: absolute;
+  top: 42%;
+  left: -25%;
+}
+
+.mobile {
+  display: none;
+}
+
+.container {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 5%;
+  position: relative;
+}
+
+.desktop {
+  width: 120%;
+  position: absolute;
+  top: 18%;
+  left: -20%;
+}
+
+/*=========
+    FAQ'S
+===========*/
+.faq {
+  padding: 8% 10% 8% 5%;
+  width: 100%;
+}
+
+h1 {
+  font-size: 30px;
+  margin: 0 0 5% 0;
+  color: var(--very-dark-blue-text);
+}
+
+span,
+.question p {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-dark-blue);
+}
+
+.question {
+  padding: 2% 2% 2% 0;
+  border-bottom: 1px solid var(--color);
+}
+
+/*===========
+    COLLAPSE
+=============*/
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] ~ p {
+  display: none;
+  line-height: 1.5;
+  font-size: 12px;
+}
+
+input[type="checkbox"]:checked ~ p {
+  display: block;
+}
+
+input[type="checkbox"]:checked ~ label span {
+  font-weight: 700;
+}
+
+input[type="checkbox"]:checked ~ label .down-arrow {
+  transform: rotate(180deg);
+  transform-origin: center;
+}
+
+/*============
+    QUESTIONS
+==============*/
+label {
+  display: block;
+  padding: 10px 0;
+  position: relative;
+  cursor: pointer;
+}
+
+label:hover span {
+  color: var(--soft-orange);
+}
+
+label .down-arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/*======================
+    MEDIA QUERY FOR 990
+========================*/
+@media (max-width: 990px) {
+  main {
+    flex-direction: column;
+    justify-content: center;
+    margin: 30% auto;
+    background: #fff url(images/bg-pattern-mobile.svg) top center no-repeat;
+    background-size: 75%;
+  }
+
+  .mobile {
+    display: block;
+    position: absolute;
+    width: 75%;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .desktop,
+  .box {
+    display: none;
+  }
+
+  .img {
+    width: 100%;
+    background: none;
+    height: 20vh;
+  }
+
+    /*====================
+        FAQ MEDIA QUERIES
+    ======================*/
+  .faq {
+    padding: 8% 5% 15%;
+  }
+  h1 {
+    text-align: center;
+  }
+  label .down-arrow {
+    right: 0;
+  }
+  .question {
+    padding-right: 0;
+  }
+}
+
+/*======================
+    MEDIA QUERY FOR 790
+========================*/
+@media (max-width: 790px) {
+  main {
+    margin: 35% auto;
+  }
+  .img {
+    height: 18vh;
+  }
+  .mobile {
+    top: -90%;
+  }
+}
+
+/*======================
+    MEDIA QUERY FOR 550
+========================*/
+@media (max-width: 550px) {
+  main {
+    width: 90%;
+    border-radius: 20px;
+  }
+  .img {
+    height: 13vh;
+  }
+
+  .mobile {
+    top: -85%;
+  }
+
+  .faq {
+    padding: 8% 6% 15%;
+  }
+}
+
+/*======================
+    MEDIA QUERY FOR 375
+========================*/
+@media (max-width: 375px) {
+  .img {
+    height: 10vh;
+  }
+
+  .mobile {
+    top: -110%;
+  }
+}
